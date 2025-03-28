@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) {
 } // Exit if accessed directly
 
 // Define multiple necessary constants
-define('IMAGEFOCUS_VERSION', '0.9.2');
+define('IMAGEFOCUS_VERSION', '1.0.0');
 define('IMAGEFOCUS_TEXTDOMAIN', 'image-focus');
 define('IMAGEFOCUS_LANGUAGES', dirname(plugin_basename(__FILE__)) . '/languages/');
 
