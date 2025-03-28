@@ -3,7 +3,7 @@
 Plugin Name: Image Focus
 Plugin URI: https://github.com/wallabi-es/image-focus
 Description: Image Focus is an image crop plugin where you can crop your images by focal point.
-Version: 0.9.2
+Version: 1.0.0
 Author: Wallabi.es
 Author URI: http://www.wallabi.es/
 Copyright: Danny van Holten, Harwin Borger
