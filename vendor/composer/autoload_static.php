@@ -7,17 +7,13 @@ namespace Composer\Autoload;
 class ComposerStaticInit9af7bac6676022f0a351cad49ab5be33
 {
     public static $files = array (
-        'b25507ddc63d8a0049e746795978ec1a' => __DIR__ . '/../..' . '/resources/helpers.php',
+        'ea84e80169b758063635acb76a60ab17' => __DIR__ . '/../..' . '/resources/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         'I' => 
         array (
             'ImageFocus\\' => 11,
-        ),
-        'C' => 
-        array (
-            'Composer\\Installers\\' => 20,
         ),
     );
 
@@ -26,10 +22,10 @@ class ComposerStaticInit9af7bac6676022f0a351cad49ab5be33
         array (
             0 => __DIR__ . '/../..' . '/resources',
         ),
-        'Composer\\Installers\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers',
-        ),
+    );
+
+    public static $classMap = array (
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -37,6 +33,7 @@ class ComposerStaticInit9af7bac6676022f0a351cad49ab5be33
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit9af7bac6676022f0a351cad49ab5be33::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit9af7bac6676022f0a351cad49ab5be33::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit9af7bac6676022f0a351cad49ab5be33::$classMap;
 
         }, null, ClassLoader::class);
     }

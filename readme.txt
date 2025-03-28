@@ -1,10 +1,8 @@
 === Image Focus ===
-Contributors: DannyvanHolten, HarwinBorger
-Donate link: http://www.wallabi.es/
 Tags: image crop, image focus, images, crop, image editor, editor, media editor, cropping, focus point, focal point
 Requires at least: 4.6
 Tested up to: 4.8
-Stable tag: 0.9.2
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
