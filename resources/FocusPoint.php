@@ -30,9 +30,8 @@ class FocusPoint
      */
     public function loadScripts()
     {
-        wp_enqueue_script('focuspoint-js', IMAGEFOCUS_ASSETS . 'js/focuspoint.min.js', ['jquery']);
+        wp_enqueue_script('focuspoint-js', IMAGEFOCUS_ASSETS . 'js/focuspoint.js', ['jquery'], '1.0.1');
         wp_localize_script('focuspoint-js', 'focusPointL10n', $this->focusPointL10n());
-        wp_enqueue_script('focuspoint-js');
 
         wp_enqueue_style('image-focus-css', IMAGEFOCUS_ASSETS . 'css/style.min.css');
     }
@@ -63,7 +62,7 @@ class FocusPoint
         $die = json_encode(['success' => false]);
 
         // Return the focus point if there is one
-        if (null !== $attachment['id'] || is_array($attachment['focusPoint'])) {
+        if (null !== $attachment['id'] && is_array($attachment['focusPoint'])) {
             $die = json_encode([
                 'success'    => true,
                 'focusPoint' => $attachment['focusPoint']
@@ -87,7 +86,12 @@ class FocusPoint
         // Crop the attachment if there is a focus point
         if (null !== $attachment['id'] && is_array($attachment['focusPoint'])) {
             $crop = new CropService();
-            $crop->crop($attachment['id'], $attachment['focusPoint']);
+
+            if($attachment['doCrop'] == 'true') {
+                $crop->crop($attachment['id'], $attachment['focusPoint']);
+            } else {
+                $crop->setCropData($attachment['id'], $attachment['focusPoint']);
+            }
 
             $die = json_encode(['success' => true]);
         }

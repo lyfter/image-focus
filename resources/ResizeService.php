@@ -39,6 +39,10 @@ class ResizeService
         if (!empty($metaData)) {
             $focusPoint = get_post_meta($attachmentId, 'focus_point', true);
 
+            if (empty($focusPoint)) {
+                return $data;
+            }
+
             // Crop the attachment trough the crop service
             $crop = new CropService();
             $crop->crop($attachmentId, $focusPoint);

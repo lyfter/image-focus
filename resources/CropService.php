@@ -25,7 +25,7 @@ class CropService
     {
         // Set all the cropping data
         $this->setCropData($attachmentId, $focusPoint);
-        $this->cropAttachment();
+//        $this->cropAttachment();
     }
 
     /**
@@ -34,7 +34,7 @@ class CropService
      * @param $attachmentId
      * @param $focusPoint
      */
-    private function setCropData($attachmentId, $focusPoint)
+    public function setCropData($attachmentId, $focusPoint)
     {
         $this->getImageSizes();
         $this->getAttachment($attachmentId);
