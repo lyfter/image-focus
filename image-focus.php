@@ -17,13 +17,19 @@ if (!defined('ABSPATH')) {
 // Define multiple necessary constants
 define('IMAGEFOCUS_VERSION', '1.0.0');
 define('IMAGEFOCUS_TEXTDOMAIN', 'image-focus');
-define('IMAGEFOCUS_LANGUAGES', dirname(plugin_basename(__FILE__)) . '/languages/');
+define('IMAGEFOCUS_LANGUAGES',plugin_dir_path(__FILE__) . '/languages/');
 
 define('IMAGEFOCUS_ASSETS', plugin_dir_url(__FILE__));
 define('IMAGEFOCUS_RESOURCES', __DIR__ . '/resources/');
 
-// Use composer to autoload our classes
-require_once __DIR__ . '/vendor/autoload.php';
+$autoload = plugin_dir_path(__FILE__) . '/vendor/autoload.php';
 
-// Initiate the field!
+if (!class_exists(ImageFocus::class)) {
+    if (is_readable($autoload)) {
+        require_once $autoload;
+    } else {
+        wp_die('Please run "composer install" in plugin directory.');
+    }
+}
+
 new ImageFocus();
